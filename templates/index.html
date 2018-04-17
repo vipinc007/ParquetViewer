@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+                {% if not fileName== '' %}
+
+                        <h2>{{ fileName }}</h2>
+                        <div id="scrolldiv1">{{ data|safe }}</div>
+                    {% else %}
+                        <h2>Welcome to VCfactory Simple Flask Example</h2>
+                        <p>Click the csv files on left to see the results</p>
+
+                {% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>VCFactory | Simple Flask Application</title>
+
+         <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="https://bootstrapious.com/tutorial/sidebar/style.css">
+        <style>
+
+            table.dataframe, .dataframe th, .dataframe td {
+              border: none;
+              border-bottom: 1px solid #C8C8C8;
+              border-collapse: collapse;
+              text-align:left;
+              padding: 10px;
+              margin-bottom: 40px;
+              font-size: 0.9em;
+                width:100%;
+                white-space:nowrap;
+            }
+
+
+            tr:nth-child(odd)		{ background-color:#eee; white-space:nowrap; }
+            tr:nth-child(even)	{ background-color:#fff; white-space:nowrap;}
+
+            tr:hover            { background-color: #ffff99;}
+
+
+
+            #scrolldiv1 {
+            height: 500px;
+            width: 100%;
+            overflow: scroll;
+            border: 1px solid #666;
+
+            padding: 8px;
+            }
+
+            #container2 {
+            width: 90%;
+            position: absolute;
+            margin:0 auto;
+            line-height: 1.4em;
+                overflow: scroll;
+            }
+
+            /* If in mobile screen with maximum width 479px. The iPhone screen resolution is 320x480 px (except iPhone4, 640x960) */
+            @media only screen and (max-width: 479px){
+                #container2 { width: 90%; }
+            }
+        </style>
+    </head>
+    <body>
+
+    <!--https://bootstrapious.com/tutorial/sidebar/index.html#-->
+
+        <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3><a href="\">Flasky</a></h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p>Record Types</p>
+
+                     {% for name in files: %}
+                        <li>
+                        <a href="{{ name }}">{{ name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content">
+
+              <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                                <span>Toggle Sidebar</span>
+
+                            </button>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                        </div>
+                    </div>
+                </nav>
+
+         {% block body %}{% endblock %}
+
+
+        </div>
+        </div>
+
+
+
+
+
+        <!-- jQuery CDN -->
+         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+         <!-- Bootstrap Js CDN -->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+         </script>
+    </body>
+</html>
